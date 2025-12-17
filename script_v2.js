@@ -22,7 +22,7 @@ button.onclick = () => {
   const text = input.value.trim();
   if (!text) return;
 
-  set(msgRef, {
+  push(msgRef, {
     text,
     createdAt: Date.now()
   });
@@ -31,24 +31,25 @@ button.onclick = () => {
 };
 
 onValue(msgRef, (snapshot) => {
-  if (!container) return;
-
   container.innerHTML = "";
   const data = snapshot.val();
   if (!data) return;
 
-  const age = Date.now() - data.createdAt;
+  for (const id in data) {
+    const msg = data[id];
 
-  if (age >= 10000) {
-    remove(msgRef);
-    return;
+    const age = Date.now() - msg.createdAt;
+    if (age >= 10000) {
+      remove(ref(db, "message/" + id));
+      continue;
+    }
+
+    const p = document.createElement("p");
+    p.textContent = msg.text;
+    container.appendChild(p);
+
+    setTimeout(() => {
+      remove(ref(db, "message/" + id));
+    }, 10000 - age);
   }
-
-  const p = document.createElement("p");
-  p.textContent = data.text;
-  container.appendChild(p);
-
-  setTimeout(() => {
-    remove(msgRef);
-  }, 10000 - age);
 });
