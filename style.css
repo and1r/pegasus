@@ -1,14 +1,79 @@
-body{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 20px;
-    background-color: aquamarine;
+/* Alap reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.gomb
-{
-    background-color: white;
-    padding-left: 50px;
-    padding-bottom: 100px;
-    margin-left: 550px;
-    font-size: 30px;
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Üzenetmező + gomb konténer */
+.mezo {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 16px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.mezo::placeholder {
+    color: #999;
+}
+
+.gomb {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #4f46e5;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background 0.2s ease, transform 0.1s ease;
+    margin-bottom: 20px;
+}
+
+.gomb:hover {
+    background: #4338ca;
+}
+
+.gomb:active {
+    transform: scale(0.98);
+}
+
+/* Üzenetek doboza */
+#messages {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+/* Egy üzenet stílus (ha div-eket raksz bele JS-ből) */
+#messages div {
+    background: #f1f5f9;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.4;
 }
