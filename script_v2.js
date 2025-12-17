@@ -27,6 +27,7 @@ while (!username) {
   username = prompt("Add meg a neved:");
   if (username) {
     username = username.trim();
+    break;
   }
 }
 
@@ -91,3 +92,4 @@ onValue(msgRef, (snapshot) => {
     }, 10000 - age);
   });
 });
+
