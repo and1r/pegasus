@@ -22,7 +22,7 @@ button.onclick = () => {
   const text = input.value.trim();
   if (!text) return;
 
-  push(msgRef, {
+  set(msgRef, {
     text,
     createdAt: Date.now()
   });
