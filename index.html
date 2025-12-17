@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messages</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input id="msg" placeholder="Ide írd amit szeretnél üzenni!" autocomplete="off" class="mezo">
-    <button id="send" class="gomb">Küld</button>
-    <div id="messages"></div>
-    
-    <script type="module" src="script_v2.js"></script>
-</body>
+  <!-- Belépés -->
+  <div id="login">
+    <input id="usernameInput" placeholder="Add meg a neved" />
+    <button id="loginBtn">Csatlakozás</button>
+  </div>
 
+  <!-- Chat -->
+  <div id="chat" style="display:none;">
+    <input id="msg" placeholder="Írd az üzeneted" />
+    <button id="send">Küld</button>
+    <div id="messages"></div>
+  </div>
+
+  <script type="module" src="script.js" defer></script>
+</body>
 </html>
