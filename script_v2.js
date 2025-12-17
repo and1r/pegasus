@@ -21,6 +21,27 @@ const input = document.getElementById("msg");
 const button = document.getElementById("send");
 const container = document.getElementById("messages");
 
+function sendMessage() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  push(msgRef, {
+    text: text,
+    createdAt: Date.now()
+  });
+
+  input.value = "";
+}
+
+button.onclick = sendMessage;
+
+input.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    sendMessage();
+  }
+});
+
 // 📩 Üzenet küldése (Firebase push!)
 button.onclick = () => {
   const text = input.value.trim();
@@ -59,3 +80,4 @@ onValue(msgRef, (snapshot) => {
     }, 10000 - age);
   });
 });
+
