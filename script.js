@@ -39,7 +39,7 @@ onValue(msgRef, (snapshot) => {
 
   const age = Date.now() - data.createdAt;
 
-  if (age >= 10000) {
+  if (age >=  3600000 ) {
     remove(msgRef);
     return;
   }
@@ -50,5 +50,6 @@ onValue(msgRef, (snapshot) => {
 
   setTimeout(() => {
     remove(msgRef);
-  }, 10000 - age);
+  }, 3600000 - age);
 });
+
