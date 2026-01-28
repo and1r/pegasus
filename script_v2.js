@@ -4,8 +4,13 @@ import {
   ref,
   push,
   onValue,
-  remove
+  remove,
+  getAuth,
+  signInAnonymously
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+const auth = getAuth(app);
+signInAnonymously(auth);
+
 
 // 🔥 Firebase init
 const app = initializeApp({
@@ -92,5 +97,6 @@ onValue(msgRef, (snapshot) => {
     }, 10000 - age);
   });
 });
+
 
 
