@@ -5,11 +5,8 @@ import {
   push,
   onValue,
   remove,
-  getAuth,
-  signInAnonymously
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-const auth = getAuth(app);
-signInAnonymously(auth);
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 
 // 🔥 Firebase init
@@ -97,6 +94,7 @@ onValue(msgRef, (snapshot) => {
     }, 10000 - age);
   });
 });
+
 
 
 
