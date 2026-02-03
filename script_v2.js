@@ -7,7 +7,7 @@ import {
   remove,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-
+remove(ref(db, "messages"));
 // 🔥 Firebase init
 const app = initializeApp({
   apiKey: "AIzaSyADfPsLgzF9JKrQUSEB4pIN4xmeSjos404",
@@ -93,6 +93,7 @@ onValue(msgRef, (snapshot) => {
     }, 10000 - age);
   });
 });
+
 
 
 
