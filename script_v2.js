@@ -79,7 +79,7 @@ onValue(msgRef, (snapshot) => {
 
 
     // ⏰ 10 mp után törlés
-    if (age >= 10000) {
+    {
       remove(ref(db, `messages/${key}`));
       return;
     }
@@ -93,6 +93,7 @@ onValue(msgRef, (snapshot) => {
     }, 10000 - age);
   });
 });
+
 
 
 
